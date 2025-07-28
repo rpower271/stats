@@ -3,6 +3,7 @@
  * @returns {number} the length of the array
  */
 function getLength(numbers) {
+  return numbers.length;
   // TODO
 }
 
@@ -11,6 +12,14 @@ function getLength(numbers) {
  * @returns {number} the sum of the numbers
  */
 function getSum(numbers) {
+  let sum = 0;
+  let i = 0;
+  while (i < numbers.length) {
+    const number = numbers[i];
+    sum += number;
+    i += 1;
+  }
+  return sum;
   // TODO
 }
 
@@ -19,6 +28,7 @@ function getSum(numbers) {
  * @returns {number} the mean of the numbers
  */
 function getMean(numbers) {
+  return getSum(numbers) / getLength(numbers);
   // TODO
 }
 
@@ -27,7 +37,13 @@ function getMean(numbers) {
  * @returns {number} the smallest of the numbers
  */
 function getMin(numbers) {
-  // TODO
+  let min = Infinity;
+  for (const number of numbers) {
+    if (number < min) {
+      min = number;
+    }
+  }
+  return min;
 }
 
 /**
@@ -35,6 +51,13 @@ function getMin(numbers) {
  * @returns {number} the largest of the numbers
  */
 function getMax(numbers) {
+  let max = -Infinity;
+  for (const number of numbers) {
+    if (number > max) {
+      max = number;
+    }
+  }
+  return max;
   // TODO
 }
 
@@ -43,6 +66,7 @@ function getMax(numbers) {
  * @returns {number} the range of the numbers (max - min)
  */
 function getRange(numbers) {
+  return getMax(numbers) - getMin(numbers);
   // TODO
 }
 
@@ -51,6 +75,13 @@ function getRange(numbers) {
  * @returns {number[]} the even numbers in the array
  */
 function getEvens(numbers) {
+  const evens = [];
+  for (const number of numbers) {
+    if (number % 2 === 0) {
+      evens.push(number);
+    }
+  }
+  return evens;
   // TODO
 }
 
@@ -59,6 +90,13 @@ function getEvens(numbers) {
  * @returns {number[]} the odd numbers in the array
  */
 function getOdds(numbers) {
+  const odds = [];
+  for (const number of numbers) {
+    if (number % 2 === 1) {
+      odds.push(number);
+    }
+  }
+  return odds;
   // TODO
 }
 
@@ -99,7 +137,7 @@ function describeNumbers(numbers) {
 
 const userInputString = prompt(
   "Please enter some integers separated by commas.",
-  "28,-15,30,975,400"
+  "45,11,-38,675,600"
 );
 const numbers = convertStringToNumbers(userInputString);
 describeNumbers(numbers);
